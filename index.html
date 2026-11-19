@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONG Cata Vento · Casa Azul · Reequilíbrio Psicossocial</title>
+<meta name="description" content="ONG Cata Vento – Centro de Apoio às Pessoas em Situação de Reequilíbrio Psicossocial. Acolhimento, terapias integrativas, agroecologia e educação popular em saúde em João Pessoa – PB.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --terracota:#A0522D;
+    --terracota-esc:#6E3519;
+    --verde:#4E7D3A;
+    --verde-esc:#2F5223;
+    --laranja:#E07B2E;
+    --ouro:#D9A521;
+    --turquesa:#2E9C9A;
+    --creme:#F7EEDC;
+    --creme-esc:#EADCC0;
+    --texto:#3B2A1E;
+    --raio:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',system-ui,sans-serif;color:var(--texto);background:var(--creme);line-height:1.65;font-size:17px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.2;color:var(--terracota-esc)}
+  h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.6rem}
+  h3{font-size:1.2rem;margin-bottom:.4rem}
+  p{margin-bottom:1rem}
+  a{color:var(--turquesa)}
+  img{max-width:100%;display:block}
+  .container{width:min(1120px,92%);margin:0 auto}
+  section{padding:88px 0}
+  .tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--laranja);margin-bottom:.6rem}
+  .lead{font-size:1.1rem;max-width:720px}
+
+  /* Cabeçalho */
+  header{position:sticky;top:0;z-index:50;background:rgba(247,238,220,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--creme-esc)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--terracota-esc);font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem}
+  .marca img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+  .menu{display:flex;gap:22px;list-style:none}
+  .menu a{text-decoration:none;color:var(--texto);font-weight:600;font-size:.95rem}
+  .menu a:hover{color:var(--terracota)}
+  .btn-menu{display:none;background:none;border:0;font-size:1.8rem;color:var(--terracota-esc);cursor:pointer}
+
+  /* Botões */
+  .btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+  .btn-pri{background:var(--laranja);color:#fff}
+  .btn-sec{background:transparent;color:#fff;border:2px solid #fff}
+  .btn-verde{background:var(--verde);color:#fff}
+
+  /* Início */
+  #inicio{position:relative;min-height:88vh;display:flex;align-items:center;color:#fff;padding:0;
+    background:linear-gradient(160deg,rgba(47,82,35,.82),rgba(110,53,25,.78)),url('fotos/foto-1.jpg') center/cover no-repeat, linear-gradient(160deg,var(--verde-esc),var(--terracota));}
+  #inicio h1{color:#fff;font-size:clamp(2.2rem,6vw,4rem);margin-bottom:1rem;max-width:760px}
+  #inicio p{font-size:1.2rem;max-width:620px;opacity:.95}
+  .hero-logo{width:120px;height:120px;border-radius:50%;background:var(--creme);padding:6px;margin-bottom:1.4rem;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  .botoes{display:flex;flex-wrap:wrap;gap:14px;margin-top:1.6rem}
+
+  /* Quem somos */
+  .duas{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .foto{border-radius:var(--raio);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,var(--verde),var(--turquesa));box-shadow:0 14px 40px rgba(59,42,30,.18)}
+  .foto img{width:100%;height:100%;object-fit:cover}
+  .objetivos{list-style:none;margin-top:1.2rem}
+  .objetivos li{padding-left:30px;position:relative;margin-bottom:.6rem}
+  .objetivos li::before{content:"✺";position:absolute;left:0;color:var(--ouro);font-size:1.1rem}
+
+  /* O que fazemos */
+  #fazemos{background:var(--creme-esc)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:2.4rem}
+  .card{background:var(--creme);border-radius:var(--raio);padding:28px;border-top:5px solid var(--cor,var(--verde));box-shadow:0 4px 16px rgba(59,42,30,.08)}
+  .card .ico{font-size:2rem;margin-bottom:.6rem}
+  .card p{font-size:.96rem;margin:0}
+
+  /* Casa Azul */
+  #casa-azul{background:linear-gradient(180deg,#E6F3F1,var(--creme))}
+  #casa-azul h2{color:#1F6E6C}
+  .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:2.4rem}
+  .galeria .foto{aspect-ratio:1/1;box-shadow:none}
+  .galeria .foto:nth-child(3n+1){background:linear-gradient(135deg,var(--ouro),var(--laranja))}
+  .galeria .foto:nth-child(3n+2){background:linear-gradient(135deg,var(--verde),var(--verde-esc))}
+  .galeria .foto:nth-child(3n){background:linear-gradient(135deg,var(--turquesa),#1F6E6C)}
+  .selos{display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem}
+  .selo{background:#fff;border:1px solid #BFE0DD;color:#1F6E6C;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:600}
+
+  /* Como ajudar */
+  #ajudar{background:var(--terracota-esc);color:var(--creme)}
+  #ajudar h2,#ajudar h3{color:#fff}
+  .ajuda{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start}
+  .pix{background:var(--creme);color:var(--texto);border-radius:var(--raio);padding:32px;text-align:center}
+  .pix h3{color:var(--terracota-esc)}
+  .chave{font-family:monospace;font-size:1.35rem;font-weight:700;background:#fff;border:2px dashed var(--ouro);border-radius:12px;padding:14px;margin:14px 0;word-break:break-all}
+  .copiar{border:0;cursor:pointer;font-family:inherit;font-size:1rem}
+  .formas{list-style:none}
+  .formas li{background:rgba(255,255,255,.08);border-radius:14px;padding:18px 20px;margin-bottom:12px}
+  .formas strong{color:var(--ouro);display:block;font-size:1.05rem}
+
+  /* Contato */
+  .contatos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:2rem}
+  .contato{background:#fff;border-radius:var(--raio);padding:26px;text-decoration:none;color:var(--texto);box-shadow:0 4px 16px rgba(59,42,30,.08);transition:transform .2s}
+  a.contato:hover{transform:translateY(-3px)}
+  .contato .ico{font-size:1.8rem}
+  .contato span{display:block;font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--laranja);font-weight:700;margin:.4rem 0 .2rem}
+  .mapa{margin-top:28px;border-radius:var(--raio);overflow:hidden;height:340px;border:0;width:100%}
+
+  footer{background:var(--verde-esc);color:var(--creme);padding:36px 0;text-align:center;font-size:.92rem}
+  footer p{margin:.2rem 0}
+
+  .zap{position:fixed;right:18px;bottom:18px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:60}
+  .zap svg{width:32px;height:32px;fill:#fff}
+
+  @media(max-width:860px){
+    section{padding:64px 0}
+    .duas,.ajuda{grid-template-columns:1fr;gap:32px}
+    .btn-menu{display:block}
+    .menu{display:none;position:absolute;top:72px;left:0;right:0;background:var(--creme);flex-direction:column;gap:0;border-bottom:1px solid var(--creme-esc)}
+    .menu.aberto{display:flex}
+    .menu a{display:block;padding:14px 6%}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#inicio" class="marca">
+      <img src="logo.png" alt="Logo ONG Cata Vento" onerror="this.style.display='none'">
+      ONG Cata Vento
+    </a>
+    <button class="btn-menu" aria-label="Abrir menu" onclick="document.querySelector('.menu').classList.toggle('aberto')">☰</button>
+    <ul class="menu" onclick="this.classList.remove('aberto')">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#fazemos">O que fazemos</a></li>
+      <li><a href="#casa-azul">Casa Azul</a></li>
+      <li><a href="#ajudar">Como ajudar</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- INÍCIO -->
+<section id="inicio">
+  <div class="container">
+    <img class="hero-logo" src="logo.png" alt="" onerror="this.style.display='none'">
+    <h1>Cuidado, natureza e saber ancestral para o reequilíbrio da vida.</h1>
+    <p>Somos o Centro de Apoio às Pessoas em Situação de Reequilíbrio Psicossocial – Catavento. Um espaço de acolhimento, convivência e reconexão em Barra de Gramame, João Pessoa – PB.</p>
+    <div class="botoes">
+      <a href="#ajudar" class="btn btn-pri">Quero ajudar</a>
+      <a href="#quem-somos" class="btn btn-sec">Conheça a ONG</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos">
+  <div class="container duas">
+    <div>
+      <span class="tag">Quem somos</span>
+      <h2>Um centro de apoio feito de gente, terra e afeto</h2>
+      <p class="lead">A ONG Cata Vento acolhe pessoas em situação de reequilíbrio biopsicossocial. Unimos cuidado, natureza, saber popular e ancestral, vida em comunidade e espiritualidade.</p>
+      <p>Acreditamos que o bem-estar nasce da relação com o outro, com a terra e consigo mesmo. Por isso cultivamos um espaço aberto, simples e acolhedor, onde cada pessoa é recebida com respeito.</p>
+      <ul class="objetivos">
+        <li>Elevar a consciência humana e o cuidado integral</li>
+        <li>Resgatar tradições e saberes populares e ancestrais</li>
+        <li>Viver em comunidade e reconectar com a natureza</li>
+        <li>Respeitar e regenerar o meio ambiente, com reflorestamento de sementes nativas</li>
+        <li>Acolher pessoas em situação de desequilíbrio biopsicossocial</li>
+      </ul>
+    </div>
+    <div class="foto"><img src="fotos/foto-2.jpg" alt="Colheita de feijão na horta" onerror="this.remove()"></div>
+  </div>
+</section>
+
+<!-- O QUE FAZEMOS -->
+<section id="fazemos">
+  <div class="container">
+    <span class="tag">O que fazemos</span>
+    <h2>Nossas frentes de atuação</h2>
+    <p class="lead">Atividades que se complementam para cuidar das pessoas, da comunidade e do território.</p>
+    <div class="cards">
+      <div class="card" style="--cor:var(--terracota)">
+        <div class="ico">🤲</div>
+        <h3>Apoio biopsicossocial</h3>
+        <p>Acolhimento, escuta e convivência para pessoas em processo de reequilíbrio.</p>
+      </div>
+      <div class="card" style="--cor:var(--turquesa)">
+        <div class="ico">🧘</div>
+        <h3>Terapias integrativas</h3>
+        <p>Yoga, meditação, mindfulness, massoterapia, shiatsu, reiki, do-in, reflexologia e outras práticas de bem-estar.</p>
+      </div>
+      <div class="card" style="--cor:var(--verde)">
+        <div class="ico">🌱</div>
+        <h3>Agroecologia</h3>
+        <p>Horta em mandala, agrofloresta, viveiro de mudas, troca de sementes, compostagem, cuidado com a água e mutirões de plantio.</p>
+      </div>
+      <div class="card" style="--cor:var(--ouro)">
+        <div class="ico">📚</div>
+        <h3>Educação popular em saúde</h3>
+        <p>Rodas de conversa, Rodas de Saberes Ancestrais, oficinas, cursos, zine educativo e participação no controle social do SUS.</p>
+      </div>
+      <div class="card" style="--cor:var(--laranja)">
+        <div class="ico">🌿</div>
+        <h3>Produtos naturais e artesanais</h3>
+        <p>Saboaria, cosmética natural, chás e ervas, mudas, alimentos naturais e vitrine de artistas locais.</p>
+      </div>
+      <div class="card" style="--cor:var(--terracota)">
+        <div class="ico">🎨</div>
+        <h3>Arte natural</h3>
+        <p>Tintas e tons naturais, exsicatas e artesanato, como as mandalas de lã.</p>
+      </div>
+      <div class="card" style="--cor:var(--turquesa)">
+        <div class="ico">✨</div>
+        <h3>Espiritualidade e cultura</h3>
+        <p>Noites do Zodíaco com observação dos astros, rodas de conversa e vivências.</p>
+      </div>
+      <div class="card" style="--cor:var(--verde)">
+        <div class="ico">🏘️</div>
+        <h3>Comunidade</h3>
+        <p>Yoga e meditação para moradores do remanescente quilombola Gurugi e associados, e mutirões abertos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASA AZUL -->
+<section id="casa-azul">
+  <div class="container">
+    <div class="duas">
+      <div>
+        <span class="tag">Casa Azul</span>
+        <h2>Nossa casa-sede</h2>
+        <p class="lead">A Casa Azul é o coração da Cata Vento. No terraço de convivência acontecem reuniões, rodas, oficinas e encontros da comunidade.</p>
+        <p>Um lugar pensado para receber todo mundo, com estrutura de acessibilidade:</p>
+        <div class="selos">
+          <span class="selo">Rampas</span>
+          <span class="selo">Corrimãos</span>
+          <span class="selo">Sinalização</span>
+          <span class="selo">Cadeiras de rodas</span>
+        </div>
+      </div>
+      <div class="foto"><img src="fotos/foto-3.jpg" alt="Casa Azul, sede da ONG Cata Vento" onerror="this.remove()"></div>
+    </div>
+    <div class="galeria">
+      <div class="foto"><img src="fotos/foto-4.jpg" alt="Milho da roça agroecológica" onerror="this.remove()"></div>
+      <div class="foto"><img src="fotos/foto-5.jpg" alt="Mutirão de cuidado com a água" onerror="this.remove()"></div>
+      <div class="foto"><img src="fotos/foto-6.jpg" alt="Mandalas de lã artesanais" onerror="this.remove()"></div>
+      <div class="foto"><img src="fotos/foto-7.jpg" alt="Colheita de cúrcuma" onerror="this.remove()"></div>
+      <div class="foto"><img src="fotos/foto-8.jpg" alt="Yoga ao pôr do sol" onerror="this.remove()"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO AJUDAR -->
+<section id="ajudar">
+  <div class="container ajuda">
+    <div>
+      <span class="tag" style="color:var(--ouro)">Como ajudar</span>
+      <h2>Faça parte dessa roda</h2>
+      <p class="lead">Toda ajuda mantém a Casa Azul de portas abertas e as atividades acontecendo.</p>
+      <ul class="formas">
+        <li><strong>Doação via PIX</strong>Qualquer valor faz diferença.</li>
+        <li><strong>Voluntariado e mutirões</strong>Venha plantar, construir e cuidar junto com a gente.</li>
+        <li><strong>Parcerias</strong>Instituições, coletivos e empresas que queiram somar.</li>
+        <li><strong>Divulgue</strong>Siga e compartilhe o <a href="https://instagram.com/casaazulcatavento" target="_blank" rel="noopener" style="color:var(--ouro)">@casaazulcatavento</a>.</li>
+      </ul>
+    </div>
+    <div class="pix">
+      <h3>Doe pelo PIX</h3>
+      <p style="margin:0">Chave PIX (CNPJ)</p>
+      <div class="chave" id="chave">20.207.430/0001-96</div>
+      <button class="btn btn-verde copiar" onclick="copiarPix(this)">Copiar chave PIX</button>
+      <p style="font-size:.88rem;margin:16px 0 0">Centro de Apoio às Pessoas em Situação de Reequilíbrio Psicossocial – CATAVENTO</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <span class="tag">Contato</span>
+    <h2>Venha nos conhecer</h2>
+    <div class="contatos">
+      <a class="contato" href="https://wa.me/5583996224306" target="_blank" rel="noopener">
+        <div class="ico">💬</div><span>WhatsApp</span>(83) 99622-4306
+      </a>
+      <a class="contato" href="mailto:cataventocasaazul@gmail.com">
+        <div class="ico">✉️</div><span>E-mail</span>cataventocasaazul@gmail.com
+      </a>
+      <a class="contato" href="https://instagram.com/casaazulcatavento" target="_blank" rel="noopener">
+        <div class="ico">📷</div><span>Instagram</span>@casaazulcatavento
+      </a>
+      <div class="contato">
+        <div class="ico">📍</div><span>Endereço</span>Rua Maria Adalice da Costa Oliveira, s/n<br>Barra de Gramame, João Pessoa – PB<br>CEP 58060-206
+      </div>
+    </div>
+    <iframe class="mapa" loading="lazy" title="Mapa da Casa Azul"
+      src="https://www.google.com/maps?q=Rua+Maria+Adalice+da+Costa+Oliveira,+Barra+de+Gramame,+João+Pessoa+-+PB,+58060-206&output=embed"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>ONG Cata Vento</strong> · Centro de Apoio às Pessoas em Situação de Reequilíbrio Psicossocial</p>
+    <p>CNPJ 20.207.430/0001-96 · João Pessoa – PB</p>
+    <p>© <span id="ano"></span> Casa Azul Cata Vento</p>
+  </div>
+</footer>
+
+<a class="zap" href="https://wa.me/5583996224306" target="_blank" rel="noopener" aria-label="Fale pelo WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.9 2 7L3 29l6.6-2.2c2 1.1 4.2 1.7 6.4 1.7 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1.3 1.3-3.8-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9C5.3 9.8 10.1 5 16 5s10.7 4.8 10.7 10.6S21.9 26.2 16 26.2zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  function copiarPix(btn){
+    const chave = '20207430000196';
+    const ok = () => { btn.textContent = 'Chave copiada ✓'; setTimeout(()=>btn.textContent='Copiar chave PIX',2500); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(chave).then(ok).catch(()=>prompt('Copie a chave PIX:', chave)); }
+    else { prompt('Copie a chave PIX:', chave); }
+  }
+</script>
+</body>
+</html>
